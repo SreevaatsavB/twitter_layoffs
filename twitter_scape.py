@@ -34,10 +34,12 @@ if __name__ == 'main':
 
     df_tweets = get_tweets(curr_date, prev_date)
 
-    curr_dir = os.getcwd()
+#     curr_dir = os.getcwd()
 
 #     filename = "{}/tweets_data/twitter_{}_to_{}.json".format(curr_dir,prev_date, curr_date)
     filename = "twitter_{}_to_{}.json".format(prev_date, curr_date)
+    
+    print(os.listdir())
 
     df_tweets.to_json(filename)
 
