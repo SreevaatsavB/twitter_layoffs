@@ -28,12 +28,18 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config --global user.name "SreevaatsavB"
           git config --global user.email "bavanasreevaatsav1@gmail.com"
+          
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'committed json file'
+          add: '*.json --force'
+          cwd: 'twitter_layoffs/tweets_data/'
 
-      - name: commit
-        run: |
-          git add .
-          git commit -m "Automated commit: added scraped data"
-          git push origin master
+#       - name: commit
+#         run: |
+#           git add .
+#           git commit -m "Automated commit: added scraped data"
+#           git push origin master
 
       # - name: commit files
       #   run: |
