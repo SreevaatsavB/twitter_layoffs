@@ -1,0 +1,2 @@
+snscrape>=0.5.0.2
+pandas==1.5.3
