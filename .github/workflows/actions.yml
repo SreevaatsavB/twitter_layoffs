@@ -21,7 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Scrape Twitter
-        run: python twitter_scape.py
+        run: python -u twitter_scape.py
 
       - name: Configure git to trust the workspace despite the different owner
         run: |
