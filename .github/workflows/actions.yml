@@ -4,8 +4,6 @@ on: push
   # schedule:
 #     # - cron: '0 0 * * *' 
 #     # - cron: '15 22 * * *' 
-env:
-  DEVOPS_DIR: twitter_layoffs
 
 jobs:
   scrape-twitter:
@@ -24,7 +22,7 @@ jobs:
           pip install -r requirements.txt
           
       - name: Scrape Twitter
-        run: python ${{ env.DEVOPS_DIR }}/twitter_scape.py
+        run: python twitter_scape.py
         shell: sh
 #         run: python -u twitter_scape.py
 
