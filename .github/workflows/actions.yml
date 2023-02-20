@@ -23,10 +23,9 @@ jobs:
       - name: Scrape Twitter
         run: python twitter_scape.py
 
-      - name: setup git config
-        run: |
-          git config user.name "SreevaatsavB"
-          git config user.email "bavanasreevaatsav1@gmail.com"
+      - name: Configure git to trust the workspace despite the different owner
+        run:
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: commit
         run: |
