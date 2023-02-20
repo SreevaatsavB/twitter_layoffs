@@ -24,8 +24,10 @@ jobs:
         run: python twitter_scape.py
 
       - name: Configure git to trust the workspace despite the different owner
-        run:
+        run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "SreevaatsavB"
+          git config --global user.email "bavanasreevaatsav1@gmail.com"
 
       - name: commit
         run: |
