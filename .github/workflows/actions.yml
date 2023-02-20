@@ -23,10 +23,21 @@ jobs:
       - name: Scrape Twitter
         run: python twitter_scape.py
 
-      - name: commit files
+      - name: setup git config
         run: |
-          git config --global user.name "SreevaatsavB"
-          git config --global user.email "bavanasreevaatsav1@gmail.com"
+          git config user.name "SreevaatsavB"
+          git config user.email "bavanasreevaatsav1@gmail.com"
+
+      - name: commit
+        run: |
           git add .
           git commit -m "Automated commit: added scraped data"
-          git push
+          git push origin master
+
+      # - name: commit files
+      #   run: |
+      #     git config --global user.name "SreevaatsavB"
+      #     git config --global user.email "bavanasreevaatsav1@gmail.com"
+      #     git add .
+      #     git commit -m "Automated commit: added scraped data"
+      #     git push
