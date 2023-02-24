@@ -1,8 +1,9 @@
 name: run twitter_scapper.py
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  push
+#   schedule:
+#     - cron: '0 18 * * *'
     
 jobs:
   scrape-twitter:
