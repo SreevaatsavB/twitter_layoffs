@@ -11,6 +11,8 @@ def get_tweets(curr_date, prev_date):
     query_f = query.format(curr_date, prev_date)
     tweets = []
     limit = 1000000
+    
+    print(query_f)
 
     i = 1
     for tweet in sntwitter.TwitterSearchScraper(query_f).get_items():
@@ -27,17 +29,13 @@ def get_tweets(curr_date, prev_date):
 
 # if __name__ == 'main':
 
-curr_date = datetime.datetime.today().__str__()
+curr_date = datetime.datetime.today().date().__str__()
 prev_date = datetime.datetime.today() - datetime.timedelta(days=1)
-prev_date = prev_date.__str__()
+prev_date = prev_date.date().__str__()
 
 df_tweets = get_tweets(curr_date, prev_date)
 
-print(df_tweets.shape)
-
 filename = "twitter_{}_to_{}.json".format(prev_date, curr_date)
-
-# print(os.listdir())
 
 df_tweets.to_json(filename)
 
