@@ -37,7 +37,7 @@ jobs:
         run: |
           git add .
           git commit -m "Automated commit: added scraped data"
-          git push
+          git push origin main --force
 
       # - name: commit files
       #   run: |
