@@ -21,31 +21,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
+      - name: Configure git to trust the workspace despite the different owner
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "SreevaatsavB"
+          git config --global user.email "bavanasreevaatsav1@gmail.com"
+          
       - name: Scrape Twitter
         run: python twitter_scape.py
         shell: sh
 #         run: python -u twitter_scape.py
 
-#       - name: Configure git to trust the workspace despite the different owner
-#         run: |
-#           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-#           git config --global user.name "SreevaatsavB"
-#           git config --global user.email "bavanasreevaatsav1@gmail.com"
-          
-      - name: Commit and push if the data has changed
-        run: |-
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A
+  
+      - name: commit
+        run: |
+          git add .
           git commit -m "Automated commit: added scraped data"
           git push
-
-
-#       - name: commit
-#         run: |
-#           git add .
-#           git commit -m "Automated commit: added scraped data"
-#           git push
 
       # - name: commit files
       #   run: |
