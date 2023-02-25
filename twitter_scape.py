@@ -26,8 +26,10 @@ def get_tweets(curr_date, prev_date):
     print(df1.shape)
     return df1
 
-curr_date = datetime.datetime.today().date().__str__()
-prev_date = datetime.datetime.today() - datetime.timedelta(days=1)
+curr_date = datetime.datetime.today() - datetime.timedelta(days=1) 
+curr_date = curr_date.date().__str__()
+
+prev_date = datetime.datetime.today() - datetime.timedelta(days=2)
 prev_date = prev_date.date().__str__()
 
 df_tweets = get_tweets(curr_date, prev_date)
